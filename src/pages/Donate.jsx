@@ -28,7 +28,7 @@ const Donate = () => {
 		{ image: opensource, label: "opensource", bgColor: "bg-slate-300" },
 	];
 	return (
-		<div className='relative'>
+		<div className='relative mx-10'>
 			<div className='fixed top-0 left-0 w-full z-20'>
 				<Navbar />
 			</div>
@@ -45,7 +45,7 @@ const Donate = () => {
 			</p>
 
 			<div className='flex lg:items-start justify-center lg:justify-start mt-10'>
-				<button className='w-full lg:w-1/3 bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition duration-300 font-medium'>
+				<button className='w-full lg:w-1/3 bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-900 transition duration-300 font-medium'>
 					Start a GoFundMe
 				</button>
 			</div>

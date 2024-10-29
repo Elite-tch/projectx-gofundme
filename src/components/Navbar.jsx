@@ -1,6 +1,6 @@
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseCircleOutline } from "react-icons/io5";
-import logo from "../assets/logo.png";
+// import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
@@ -31,7 +31,7 @@ const Navbar = () => {
 					{navLinksLeft.map((link, index) => (
 						<a
 							key={index}
-							href={link.to === "#" ? undefined : link.to}
+							href={link.to === "#" ? handleBookNowClick : link.to}
 							className='text-sm cursor-pointer font-medium text-gray-700 hover:text-gray-900 transition duration-300'
 						>
 							{link.title}
@@ -57,7 +57,7 @@ const Navbar = () => {
 							}
 							className={`text-sm cursor-pointer font-medium hover:text-gray-900 transition duration-300 ${
 								link.title === "Start a GoFundMe"
-									? "text-white bg-purple-600 px-4 py-2 rounded-full"
+									? "text-white bg-purple-700 px-4 py-2 rounded-full"
 									: "text-gray-700"
 							}`}
 						>
@@ -86,7 +86,7 @@ const Navbar = () => {
 			>
 				<div className='flex justify-between items-center p-5'>
 					{/* Logo since we dont have any logo for now */}
-					<Link to='/Home' onClick={() => setIsOpen(false)}>
+					<Link to='/' onClick={() => setIsOpen(false)}>
 						<img src='logo2.png' alt='Logo' className='h-10' />
 					</Link>
 
@@ -106,7 +106,8 @@ const Navbar = () => {
 							}}
 							className={`block text-lg font-medium px-4 py-2 transition duration-200 rounded-lg ${
 								link.title === "Start a GoFundMe"
-									? "text-white bg-purple-600 rounded-full"
+									? "text-white bg-purple-700 rounded-full"
+									
 									: "text-gray-700 bg-gray-200 hover:bg-gray-300"
 							}`}
 						>

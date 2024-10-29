@@ -1,8 +1,11 @@
-import React from 'react';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
-AOS.init();
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { useEffect } from "react";
 
+export default function ContentPage() {
+	useEffect(() => {
+		AOS.init();
+	}, []);
 
 const contentData = [
     { id:1,
@@ -53,7 +56,7 @@ const contentData = [
 
 ]
 
-export default function ContentPage() {
+
   return (
     <div>
       <div className='bg-gray-900 py-10'>
@@ -159,3 +162,4 @@ How to create a Snapshot </button>
         
   );
 }
+				
