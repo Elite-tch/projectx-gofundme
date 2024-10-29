@@ -1,6 +1,6 @@
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseCircleOutline } from "react-icons/io5";
-import logo from "../assets/logo.png";
+// import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
@@ -57,7 +57,7 @@ const Navbar = () => {
 							}
 							className={`text-sm cursor-pointer font-medium hover:text-gray-900 transition duration-300 ${
 								link.title === "Start a GoFundMe"
-									? "text-white bg-blue-600 px-4 py-2 rounded-full"
+									? "text-white bg-purple-700 px-4 py-2 rounded-full"
 									: "text-gray-700"
 							}`}
 						>
@@ -86,13 +86,8 @@ const Navbar = () => {
 			>
 				<div className='flex justify-between items-center p-5'>
 					{/* Logo since we dont have any logo for now */}
-<<<<<<< HEAD
 					<Link to='/' onClick={() => setIsOpen(false)}>
-						<img src={logo} alt='Logo' className='h-8' />
-=======
-					<Link to='/Home' onClick={() => setIsOpen(false)}>
 						<img src='logo2.png' alt='Logo' className='h-10' />
->>>>>>> 9f7442f986f045bcd2e8003365c1fdb0a8135fa3
 					</Link>
 
 					{/* Close X Button */}
@@ -111,7 +106,7 @@ const Navbar = () => {
 							}}
 							className={`block text-lg font-medium px-4 py-2 transition duration-200 rounded-lg ${
 								link.title === "Start a GoFundMe"
-									? "text-white bg-blue-600 rounded-full"
+									? "text-white bg-purple-700 rounded-full"
 									: "text-gray-700 bg-gray-200 hover:bg-gray-300"
 							}`}
 						>
