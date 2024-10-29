@@ -24,8 +24,8 @@ const Navbar = () => {
 	};
 
 	return (
-		<div className='w-full mx-auto px-5 lg:px-10 bg-white'>
-			<div className='flex justify-between items-center py-4 lg:py-6'>
+		<div className='w-full mx-auto px-5 lg:px-10 bg-white shadow-2xl'>
+			<div className='flex justify-between items-center py-2 lg:py-2'>
 				{/* Desktop Links for the  Left Side */}
 				<div className='hidden lg:flex space-x-5'>
 					{navLinksLeft.map((link, index) => (
@@ -41,7 +41,7 @@ const Navbar = () => {
 
 				{/* Logo which is placed in the  Center for desktop view */}
 				<Link to='/'>
-					<img src={logo} alt='Logo' className='h-8 lg:h-12' />
+					<img src='logo2.png' alt='Logo' className='w-32 md:w-44 ' />
 				</Link>
 
 				{/* Desktop Links for the Right hand Side */}
@@ -86,8 +86,13 @@ const Navbar = () => {
 			>
 				<div className='flex justify-between items-center p-5'>
 					{/* Logo since we dont have any logo for now */}
+<<<<<<< HEAD
 					<Link to='/' onClick={() => setIsOpen(false)}>
 						<img src={logo} alt='Logo' className='h-8' />
+=======
+					<Link to='/Home' onClick={() => setIsOpen(false)}>
+						<img src='logo2.png' alt='Logo' className='h-10' />
+>>>>>>> 9f7442f986f045bcd2e8003365c1fdb0a8135fa3
 					</Link>
 
 					{/* Close X Button */}

@@ -2,3 +2,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.home{
+background-image: url('/public/bg2.jpg');
+height: 100vh;
+background-repeat: no-repeat;
+}
+
+
+.animated-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth animation */
+  }
+  
+  .animated-hover:hover {
+    transform: scale(1.05); /* Scales the element slightly */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow for effect */
+  }
+  
