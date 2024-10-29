@@ -40,7 +40,7 @@ const Navbar = () => {
 				</div>
 
 				{/* Logo which is placed in the  Center for desktop view */}
-				<Link to='/Home'>
+				<Link to='/'>
 					<img src={logo} alt='Logo' className='h-8 lg:h-12' />
 				</Link>
 
