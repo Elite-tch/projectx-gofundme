@@ -31,7 +31,7 @@ const Navbar = () => {
 					{navLinksLeft.map((link, index) => (
 						<a
 							key={index}
-							href={link.to === "#" ? undefined : link.to}
+							href={link.to === "#" ? handleBookNowClick : link.to}
 							className='text-sm cursor-pointer font-medium text-gray-700 hover:text-gray-900 transition duration-300'
 						>
 							{link.title}
@@ -86,7 +86,7 @@ const Navbar = () => {
 			>
 				<div className='flex justify-between items-center p-5'>
 					{/* Logo since we dont have any logo for now */}
-					<Link to='/Home' onClick={() => setIsOpen(false)}>
+					<Link to='/' onClick={() => setIsOpen(false)}>
 						<img src={logo} alt='Logo' className='h-8' />
 					</Link>
 
