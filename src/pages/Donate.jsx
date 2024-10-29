@@ -54,7 +54,7 @@ const Donate = () => {
 				{items.map((item, index) => (
 					<div
 						key={index}
-						className={`flex flex-col items-center p-6 ${item.bgColor} rounded-lg w-32 mx-auto`}
+						className={`flex flex-col items-center p-6 ${item.bgColor} rounded-lg w-full max-w-xs mx-auto transition-transform transform hover:scale-105 shadow-lg hover:shadow-xl`}
 					>
 						<img
 							src={item.image}
