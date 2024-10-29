@@ -117,41 +117,27 @@ Governors Forum</button>
 
 <div className='pt-4'>
 <h2 className='text-gray-300 text-center  font-bold text-2xl pb-2' >How it Works</h2>
-<div className='flex justify-center gap-8 w-4/5 mx-auto pt-6'>
-<div className='flex gap-8 text-gray-500'>
-<div className='flex items-center justify-center flex-col'>
-<div className='bg-gray-800 px-3 py-2 rounded-full text-gray-400'>01</div>
-<div className='bg-gray-800 w-0.5 h-32'></div>
-</div>
-<div className=''>
-    <h4 className='text-gray-200 font-medium'>Submit Aave Request for comment</h4>
+<div className='flex justify-center flex-col md:flex-row gap-4  md:gap-12 text-gray-400 mx-auto pt-6'>
+<div className='md:w-3/5'>
+    <h4 className='text-gray-200 font-medium pb-1'>Submit Aave Request for comment</h4>
     <p className='text-sm'>Discuss with community feedback.</p>
-    <button className='text-gray-200 text-sm'>Visit Docs </button>
+    <button className='text-purple-700 text-sm hover:text-gray-300'>Visit Docs 
+ </button>
 </div>
 
-</div>
-<div className='flex gap-8 text-gray-500'>
-<div className='flex items-center justify-center flex-col'>
-<div className='bg-gray-800 px-3 py-2 rounded-full text-gray-400'>02</div>
-<div className='bg-gray-800 w-0.5 h-32'></div>
-</div>
-<div className=''>
-    <h4 className='text-gray-200 font-medium'>Create a Snapshot</h4>
+
+
+<div className='md:w-3/5'>
+    <h4 className='text-gray-200 font-medium pb-1'>Create a Snapshot</h4>
     <p className='text-sm'>Cauga community sentiment on a new proposal through a snapshot</p>
-    <button className='text-gray-200 text-sm'>
+    
+    <button className='text-purple-700 text-sm hover:text-gray-300'>
 How to create a Snapshot </button>
 </div>
 
-</div>
 
-<div className='flex gap-8 text-gray-500'>
-<div className='flex items-center justify-center flex-col'>
-<div className='bg-gray-800 px-3 py-2 rounded-full text-gray-400'>03
-</div>
-<div className='bg-gray-800 w-0.5 h-32'></div>
-</div>
-<div className=''>
-    <h4 className='text-gray-200 font-medium'>Submit an Aave Request for Improvement</h4>
+<div className='md:w-3/5'>
+    <h4 className='text-gray-200 font-medium pb-1'>Submit an Aave Request for Improvement</h4>
     <p className='text-sm'>The proposal is submitted through a GitHub pull request and the community votes on approvals.</p>
 </div>
 
@@ -163,7 +149,7 @@ How to create a Snapshot </button>
 
 </div>
 </div>
-</div>
+
 
 
 

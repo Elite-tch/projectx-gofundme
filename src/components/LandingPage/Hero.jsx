@@ -8,7 +8,7 @@ export default function Hero() {
     
       <h1  className="text-3xl font-extrabold sm:text-5xl">
       Access the full power of DeFi.
-        <strong className="font-extrabold text-blue-700 pt-4 sm:block"> Your home for
+        <strong className="font-extrabold text-purple-600 pt-4 sm:block"> Your home for
         changing the world </strong>
       </h1>
 <div className='flex  justify-center md:flex-row flex-col gap-2 md:gap-4'>
@@ -19,16 +19,16 @@ export default function Hero() {
 Sign up for free
       </p>
 
-      <div className="mt-8 flex  justify-center gap-6 md:gap-4">
+      <div className="mt-8 flex  justify-center flex-col md:flex-row gap-6 items-center md:gap-4">
         <a
-          className="block  w-4/5 md:w-2/5 rounded bg-blue-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-blue-700 focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
+          className="block  w-4/5 md:w-2/5 rounded bg-purple-600 px-12 py-3 text-sm font-medium text-white shadow hover:bg-purple-700 focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
           href="#"
         >
           Get Started
         </a>
 
         <a
-          className="block md:w-2/5 w-3/4 rounded px-12 py-3 text-sm font-medium text-blue-600 shadow hover:text-blue-700 focus:outline-none focus:ring active:text-blue-500 sm:w-auto"
+          className="block md:w-2/5 w-3/4 rounded px-12 py-3 text-sm font-medium text-purple-600 shadow hover:text-purple-700 focus:outline-none focus:ring active:text-blue-500 sm:w-auto"
           href="#"
         >
           Learn More

@@ -57,7 +57,7 @@ const Navbar = () => {
 							}
 							className={`text-sm cursor-pointer font-medium hover:text-gray-900 transition duration-300 ${
 								link.title === "Start a GoFundMe"
-									? "text-white bg-blue-600 px-4 py-2 rounded-full"
+									? "text-white bg-purple-600 px-4 py-2 rounded-full"
 									: "text-gray-700"
 							}`}
 						>
@@ -106,7 +106,7 @@ const Navbar = () => {
 							}}
 							className={`block text-lg font-medium px-4 py-2 transition duration-200 rounded-lg ${
 								link.title === "Start a GoFundMe"
-									? "text-white bg-blue-600 rounded-full"
+									? "text-white bg-purple-600 rounded-full"
 									: "text-gray-700 bg-gray-200 hover:bg-gray-300"
 							}`}
 						>
