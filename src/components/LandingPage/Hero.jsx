@@ -27,12 +27,6 @@ Sign up for free
           Get Started
         </a>
 
-        <a
-          className="block md:w-2/5 w-3/4 rounded px-12 py-3 text-sm font-medium text-purple-600 shadow hover:text-purple-700 focus:outline-none focus:ring active:text-blue-500 sm:w-auto"
-          href="#"
-        >
-          Learn More
-        </a>
         </div>
         
         </div>
