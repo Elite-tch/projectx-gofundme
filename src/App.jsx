@@ -2,6 +2,7 @@ import './index.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Donate from "./pages/Donate";
+import CreateInitiative from "./pages/Create";
 
 function App() {
 	return (
@@ -9,7 +10,8 @@ function App() {
 			<BrowserRouter>
 				<Routes>
 					<Route index path='/' element={<Home />} />
-					<Route index path='/Donate' element={<Donate />} />
+					<Route index path='/donate' element={<Donate />} />
+					<Route index path='/create' element={<CreateInitiative />} />
 				</Routes>
 			</BrowserRouter>
 		</div>
