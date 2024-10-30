@@ -108,6 +108,7 @@ const Navbar = () => {
 							className={`block text-lg font-medium px-4 py-2 transition duration-200 rounded-lg ${
 								link.title === "Start a GoFundMe"
 									? "text-white bg-purple-700 rounded-full"
+									
 									: "text-gray-700 bg-gray-200 hover:bg-gray-300"
 							}`}
 						>
