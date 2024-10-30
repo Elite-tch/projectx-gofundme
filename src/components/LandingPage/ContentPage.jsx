@@ -171,7 +171,7 @@ Governors Forum</button>
 <div className="bg-gray-800 py-20 mt-12 lg:mt-24">
 <div className="md:w-4/5 mx-auto flex justify-between md:flex-row flex-col gap-12 lg:gap-24 ">
 
-<div className="md:w-3/5 ">
+<div className="md:w-2/5 ">
 <div className="border-t border-purple-600 rounded-full px-10 pt-8
 ">
 <div className="border-t border-purple-600 rounded-full md:px-10 px-8 pt-8">
