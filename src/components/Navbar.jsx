@@ -1,6 +1,7 @@
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseCircleOutline } from "react-icons/io5";
-// import logo from "../assets/logo.png";
+import logo2 from "../assets/logo2.png";
+
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
@@ -41,7 +42,7 @@ const Navbar = () => {
 
 				{/* Logo which is placed in the  Center for desktop view */}
 				<Link to='/'>
-					<img src='logo2.png' alt='Logo' className='w-32 md:w-44 ' />
+					<img src={logo2} alt='Logo' className='w-32 md:w-44 ' />
 				</Link>
 
 				{/* Desktop Links for the Right hand Side */}
@@ -87,7 +88,7 @@ const Navbar = () => {
 				<div className='flex justify-between items-center p-5'>
 					{/* Logo since we dont have any logo for now */}
 					<Link to='/' onClick={() => setIsOpen(false)}>
-						<img src='logo2.png' alt='Logo' className='h-10' />
+						<img src={logo2} alt='Logo' className='h-10' />
 					</Link>
 
 					{/* Close X Button */}

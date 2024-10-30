@@ -11,6 +11,7 @@ import community from "../assets/community.svg";
 import competition from "../assets/competition.svg";
 import volunteer from "../assets/volunteer.svg";
 import opensource from "../assets/opensource.svg";
+import { Link } from "react-router-dom";
 
 const Donate = () => {
 	const items = [
@@ -33,7 +34,7 @@ const Donate = () => {
 				<Navbar />
 			</div>
 
-			<div className='relative mt-24 text-left text-6xl font-medium text-gray-800  mb:ml-10 ml:ml-24 '>
+			<div className='relative md:mt-52 mt-24  text-left text-6xl font-medium text-gray-800  mb:ml-10 ml:ml-24 '>
 				<h2>
 					Browse fundraisers <h2> by category</h2>
 				</h2>
@@ -52,19 +53,25 @@ const Donate = () => {
 
 			<div className='grid grid-cols-3 lg:grid-cols-6 gap-6 mt-10'>
 				{items.map((item, index) => (
-					<div
+					<Link
+						to={`/category/${item.label.toLowerCase()}`}
 						key={index}
 						className={`flex flex-col items-center p-6 ${item.bgColor} rounded-lg w-full max-w-xs mx-auto transition-transform transform hover:scale-105 shadow-lg hover:shadow-xl`}
 					>
-						<img
-							src={item.image}
-							alt={`${item.label} Icon`}
-							className='w-20 mb-4'
-						/>
-						<p className='text-white text-sm font-medium text-center'>
-							{item.label}
-						</p>
-					</div>
+						<div
+							key={index}
+							className={`flex flex-col items-center  ${item.bgColor} rounded-lg w-full max-w-xs mx-auto transition-transform transform hover:scale-105 `}
+						>
+							<img
+								src={item.image}
+								alt={`${item.label} Icon`}
+								className='w-20 mb-4'
+							/>
+							<p className='text-white text-sm font-medium text-center'>
+								{item.label}
+							</p>
+						</div>
+					</Link>
 				))}
 			</div>
 		</div>
