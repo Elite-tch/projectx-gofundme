@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Donate from "./pages/Donate";
 import CategoryPage from "./pages/CategoryPage";
-import Education from "./pages/education";
+import Education from "./pages/Education";
 import CreateInitiative from "./pages/Create";
 
 function App() {
