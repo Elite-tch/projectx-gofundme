@@ -6,8 +6,8 @@ import { useState } from "react";
 
 const Navbar = () => {
 	const navLinksLeft = [
-		{ title: "Donate", to: "/Donate" },
 		{ title: "Home", to: "/" },
+		{ title: "Donate", to: "/Donate" },
 	];
 	const navLinksRight = [
 		{ title: "About", to: "/about" },
