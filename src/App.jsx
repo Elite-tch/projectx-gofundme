@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Donate from "./pages/Donate";
 import About from './pages/About';
-import Contact from './Contact';
+import Contact from "./Contact";
 import CreateInitiative from "./pages/Create";
 
 function App() {
