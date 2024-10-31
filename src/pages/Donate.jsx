@@ -11,22 +11,22 @@ const Donate = () => {
 	const items = [
 		{
 			image: laptop,
-			label: "help frank get a laptop for final year studies",
+			title: "help frank get a laptop for final year studies",
 
-			extralabel:
+			description:
 				"We are seeking your support to help Frank, a dedicated final-year student in electronics engineering to acquire a laptop essential for his academic success. Despite his resilience and commitment to excellence, Frank currently lacks the technology needed to complete assignments, access online resources, and collaborate with peers effectively. We aim to raise 1500 to purchase a reliable laptop for him. Your contributions, no matter how small, can make a significant difference in his life. ",
-			bgColor: "bg-slate-300",
+
 			progress: "70",
-			raised: "1000",
+			goal: "1000",
 		},
 		{
 			image: medicin2,
-			label: "Help Mary pay for her Kidney Transplant",
-			extralabel:
+			title: "Help Mary pay for her Kidney Transplant",
+			description:
 				"We are reaching out to seek your support in helping Mary cover the costs of her kidney transplant. Mary is facing a critical health challenge and urgently needs this life-saving procedure. The expenses associated with the transplant are significant, and your contributions can make a meaningful impact on her journey to recovery.",
-			bgColor: "bg-slate-300",
+
 			progress: "40",
-			raised: "3500",
+			goal: "3500",
 		},
 	];
 
@@ -75,12 +75,12 @@ const Donate = () => {
 						<div className='w-44 h-44 sm:w-full sm:h-64 mr-4 cursor-pointer'>
 							<img
 								src={item.image}
-								alt={`${item.label} Icon`}
+								alt={`${item.title} Icon`}
 								className='w-full h-full object-cover rounded-xl'
 							/>
 						</div>
 						<p className='text-sm font-medium text-left sm:text-left mt-2 sm:mt-4 text-gray-700'>
-							{item.label}
+							{item.title}
 
 							{/* Progress Bar */}
 							<div className='w-full bg-gray-200 rounded-full h-1 mt-3'>
@@ -89,7 +89,7 @@ const Donate = () => {
 									style={{ width: `${item.progress}%` }}
 								></div>
 
-								<p className='font-medium'>{item.raised} Eth</p>
+								<p className='font-medium'>{item.goal} Eth</p>
 							</div>
 						</p>
 					</div>
@@ -111,15 +111,15 @@ const Donate = () => {
 						<div className='max-h-[80vh] overflow-y-auto'>
 							<img
 								src={selectedItem.image}
-								alt={selectedItem.label}
+								alt={selectedItem.title}
 								className='w-full h-64 object-cover rounded-md mb-4'
 							/>
 							<h3 className='text-2xl font-semibold mb-4'>
-								{selectedItem.label}
+								{selectedItem.title}
 							</h3>
 
 							<p className='text-gray-700 mb-2 font-thin'>
-								{selectedItem.extralabel}
+								{selectedItem.description}
 							</p>
 
 							<Link to='/create'>
@@ -139,7 +139,7 @@ const Donate = () => {
 								Progress: {selectedItem.progress}%
 							</p>
 							<p className='text-gray-700 font-bold'>
-								Raised: {selectedItem.raised} Eth
+								Raised: {selectedItem.goal} Eth
 							</p>
 						</div>
 					</div>
