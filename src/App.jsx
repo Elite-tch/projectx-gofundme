@@ -1,4 +1,4 @@
-import './index.css';
+import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Donate from "./pages/Donate";
@@ -12,6 +12,8 @@ function App() {
 			<BrowserRouter>
 				<Routes>
 					<Route index path='/' element={<Home />} />
+					<Route index path='/Donate' element={<Donate />} />
+				
 					<Route index path='/donate' element={<Donate />} />
 					<Route index path='/create' element={<CreateInitiative />} />
 					<Route index path='/about' element={<About />} />

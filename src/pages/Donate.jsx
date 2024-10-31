@@ -1,31 +1,24 @@
 import Navbar from "../components/Navbar";
-import education from "../assets/education.svg";
-import medicine from "../assets/medicine.svg";
-import environment from "../assets/environment.svg";
-import business from "../assets/business.svg";
-import investment from "../assets/investment.svg";
-import family from "../assets/family.svg";
-import pets from "../assets/pets.svg";
-import events from "../assets/events.svg";
-import community from "../assets/community.svg";
-import competition from "../assets/competition.svg";
-import volunteer from "../assets/volunteer.svg";
-import opensource from "../assets/opensource.svg";
+import laptop from "../assets/laptop.jpg";
+import medicin2 from "../assets/medicin2.jpg";
+import { Link } from "react-router-dom";
 
 const Donate = () => {
 	const items = [
-		{ image: education, label: "Education", bgColor: "bg-slate-300" },
-		{ image: medicine, label: "Medicine", bgColor: "bg-slate-300" },
-		{ image: environment, label: "environment", bgColor: "bg-slate-300" },
-		{ image: business, label: "non-profit", bgColor: "bg-slate-300" },
-		{ image: investment, label: "investment", bgColor: "bg-slate-300" },
-		{ image: family, label: "family", bgColor: "bg-slate-300" },
-		{ image: pets, label: "pets", bgColor: "bg-slate-300" },
-		{ image: events, label: "events", bgColor: "bg-slate-300" },
-		{ image: community, label: "community", bgColor: "bg-slate-300" },
-		{ image: competition, label: "competition", bgColor: "bg-slate-300" },
-		{ image: volunteer, label: "volunteer", bgColor: "bg-slate-300" },
-		{ image: opensource, label: "opensource", bgColor: "bg-slate-300" },
+		{
+			image: laptop,
+			label: "help frank get a laptop for final year studies",
+			bgColor: "bg-slate-300",
+			progress: "70",
+			raised: "1000",
+		},
+		{
+			image: medicin2,
+			label: "Help Mary pay for her Kidney Transplant",
+			bgColor: "bg-slate-300",
+			progress: "40",
+			raised: "3500",
+		},
 	];
 	return (
 		<div className='relative mx-10'>
@@ -33,7 +26,7 @@ const Donate = () => {
 				<Navbar />
 			</div>
 
-			<div className='relative mt-24 text-left text-6xl font-medium text-gray-800  mb:ml-10 ml:ml-24 '>
+			<div className='relative md:mt-52 mt-24  text-left text-6xl font-medium text-gray-800  mb:ml-10 ml:ml-24 '>
 				<h2>
 					Browse fundraisers <h2> by category</h2>
 				</h2>
@@ -45,24 +38,37 @@ const Donate = () => {
 			</p>
 
 			<div className='flex lg:items-start justify-center lg:justify-start mt-10'>
-				<button className='w-full lg:w-1/3 bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-900 transition duration-300 font-medium'>
-					Start a GoFundMe
-				</button>
+				<Link to='/create'>
+					<button className='w-full bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-900 transition duration-300 font-medium'>
+						Start a MetroFund
+					</button>
+				</Link>
 			</div>
-
-			<div className='grid grid-cols-3 lg:grid-cols-6 gap-6 mt-10'>
+			<div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10'>
 				{items.map((item, index) => (
 					<div
 						key={index}
-						className={`flex flex-col items-center p-6 ${item.bgColor} rounded-lg w-full max-w-xs mx-auto transition-transform transform hover:scale-105 shadow-lg hover:shadow-xl`}
+						className='flex sm:flex-col items-center sm:items-center w-full mx-auto rounded-md transition-transform transform'
 					>
-						<img
-							src={item.image}
-							alt={`${item.label} Icon`}
-							className='w-20 mb-4'
-						/>
-						<p className='text-white text-sm font-medium text-center'>
+						<div className='w-44 h-44 sm:w-full sm:h-64 mr-4'>
+							<img
+								src={item.image}
+								alt={`${item.label} Icon`}
+								className='w-full h-full object-cover rounded-xl'
+							/>
+						</div>
+						<p className='text-sm font-medium text-left sm:text-left mt-2 sm:mt-4 text-gray-700'>
 							{item.label}
+
+							{/* Progress Bar */}
+							<div className='w-full bg-gray-200 rounded-full h-1 mt-3'>
+								<div
+									className='bg-purple-500 h-1 rounded-full transition-all duration-300'
+									style={{ width: `${item.progress}%` }} // dynamically set width
+								></div>
+
+								<p className='font-medium'> {item.raised} Eth</p>
+							</div>
 						</p>
 					</div>
 				))}
