@@ -10,8 +10,8 @@ const Navbar = () => {
 		{ title: "Home", to: "/" },
 	];
 	const navLinksRight = [
-		{ title: "About", to: "#" },
-		{ title: "Help Center", to: "#" },
+		{ title: "About", to: "about" },
+		{ title: "Contact", to: "/contact" },
 		{ title: "Start a MetroFund", to: "/create" },
 	];
 
