@@ -7,11 +7,11 @@ import { useState } from "react";
 const Navbar = () => {
 	const navLinksLeft = [
 		{ title: "Donate", to: "/Donate" },
-		{ title: "Fundraise", to: "#" },
+		{ title: "Home", to: "/" },
 	];
 	const navLinksRight = [
-		{ title: "About", to: "#" },
-		{ title: "Help Center", to: "#" },
+		{ title: "About", to: "/About" },
+		{ title: "Contact Us", to: "/Contact" },
 		{ title: "Start a GoFundMe", to: "#" },
 	];
 
@@ -27,7 +27,7 @@ const Navbar = () => {
 		<div className='w-full mx-auto px-5 lg:px-10 bg-white shadow-2xl'>
 			<div className='flex justify-between items-center py-2 lg:py-2'>
 				{/* Desktop Links for the  Left Side */}
-				<div className='hidden lg:flex space-x-5'>
+				<div className='hidden lg:flex lg:items-center space-x-5'>
 					{navLinksLeft.map((link, index) => (
 						<a
 							key={index}
@@ -45,7 +45,7 @@ const Navbar = () => {
 				</Link>
 
 				{/* Desktop Links for the Right hand Side */}
-				<div className='hidden lg:flex space-x-5 '>
+				<div className='hidden lg:flex lg:items-center space-x-5 '>
 					{navLinksRight.map((link, index) => (
 						<a
 							key={index}

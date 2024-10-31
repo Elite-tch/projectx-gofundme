@@ -3,8 +3,8 @@
 @tailwind components;
 @tailwind utilities;
 
-.home{
-background-image: url('/public/bg2.jpg');
+.about{
+background-image: url('/public/about.jpg');
 height: 100vh;
 background-repeat: no-repeat;
 }

@@ -101,8 +101,8 @@ const contentData = [
 <div className='grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-3 grid-cols-1 gap-6 mt-8'>
 {contentData.map((item, id) => (
             <div key={id} className='mb-4 '>
-                <a href={item.href}>
-                <div data-aos="zoom-in-up" className='flex flex-col gap-2 bg-gray-800 py-4 px-6 rounded-xl animated-hover shadow-2xl'>
+                <a href={item.href} className=" hover:bg-gray-700">
+                <div data-aos="zoom-in-up" className='flex flex-col gap-2 bg-gray-800 py-4 px-6 rounded-xl h-56 animated-hover  shadow-2xl'>
                     <img src={item.src} alt="" className='w-12' />
               <h2 className='text-gray-400 text-2xl'>{item.title}</h2>
               <p className='text-sm text-gray-600 '>{item.description}</p>
@@ -136,7 +136,7 @@ Governors Forum</button>
 <div className='pt-4'>
 <h2 className='text-gray-300 text-center  font-bold text-2xl pb-2' >How it Works</h2>
 <div className='flex justify-center flex-col md:flex-row gap-4  md:gap-12 text-gray-400 mx-auto pt-6'>
-<div className='md:w-3/5'>
+<div className='md:w-3/5 shadow-2xl p-6'>
     <h4 className='text-gray-200 font-medium pb-1'>Submit Aave Request for comment</h4>
     <p className='text-sm'>Discuss with community feedback.</p>
     
@@ -144,14 +144,14 @@ Governors Forum</button>
 
 
 
-<div className='md:w-3/5'>
+<div className='md:w-3/5 shadow-2xl p-6'>
     <h4 className='text-gray-200 font-medium pb-1'>Create a Snapshot</h4>
     <p className='text-sm'>Cauga community sentiment on a new proposal through a snapshot</p>
     
 </div>
 
 
-<div className='md:w-3/5'>
+<div className='md:w-3/5 shadow-2xl p-6'>
     <h4 className='text-gray-200 font-medium pb-1'>Submit an Aave Request for Improvement</h4>
     <p className='text-sm'>The proposal is submitted through a GitHub pull request and the community votes on approvals.</p>
 </div>
