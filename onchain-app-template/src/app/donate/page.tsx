@@ -249,7 +249,6 @@ function Donate() {
             setIcon("no");
             setIsShown(true);
             setIsLoading(false);
-
         }
     };
 
@@ -296,7 +295,6 @@ function Donate() {
             setIcon("no");
             setIsShown(true);
             setIsLoading(false);
-
         }
     };
 
@@ -312,10 +310,10 @@ function Donate() {
 
     return (
         <div className="relative pb-24 w-4/5 mx-auto">
-            <div className="relative md:mt-32 mt-24 text-left  text-6xl font-medium text-gray-800 mb:ml-10 ml:ml-24">
-                <h2>Browse fundraisers by category</h2>
+            <div className="relative mt-20 text-left  text-6xl font-medium text-gray-800 mb:ml-10 ml:ml-24">
+                <p className="text-4xl font-extrabold">Browse fundraisers by category</p>
             </div>
-            <p className="mt-6 text-left w-4/5 text-2xl pb-4 font-medium text-gray-600">
+            <p className="mt-6 text-left w-4/5 text-lg pb-4 font-medium text-gray-600">
                 People around the world are raising money for what they are
                 passionate about.
             </p>

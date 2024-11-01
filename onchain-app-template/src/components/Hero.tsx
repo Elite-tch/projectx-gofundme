@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Hero() {
     return (
-        <div className="relative bg-gray-50 h-screen flex items-center">
+        <div className="relative bg-gray-50 h-screen flex items-start">
             <div className="mx-auto max-w-screen-xl px-4 flex flex-col lg:flex-row items-center justify-between">
                 <div className="header text-center lg:text-left mx-auto md:w-3/5">
                     <h1 className="text-2xl font-extrabold sm:text-4xl ">
@@ -19,7 +19,7 @@ export default function Hero() {
                     <div className="mt-8 flex justify-center lg:justify-start">
                          <Link
                         href="/donate"
-                        className="px-5 py-2 rounded-md bg-purple-600 text-2xl  text-white hover:bg-gray-50"
+                        className="px-6 py-2 rounded-lg font-bold bg-purple-600 text-xl transition-all duration-300 text-white hover:bg-purple-800"
                     >
                         Get started
                     </Link>

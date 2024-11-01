@@ -15,9 +15,8 @@ export default function Page() {
     const { address } = useAccount();
 
     return (
-        <div className="relative w-full md:mt-32 mt-24 text-left text-6xl font-medium text-gray-800 mb:ml-10 ml:ml-24">
+        <div className="relative w-full mt-12 text-left text-6xl font-medium text-gray-800 mb:ml-10 ml:ml-24">
             <Hero />
-          
         </div>
     );
 }
