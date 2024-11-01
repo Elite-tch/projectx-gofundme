@@ -11,7 +11,7 @@ export default function Hero() {
                             Your home for changing the world
                         </strong>
                     </h1>
-                    <p className="mt-4 text-base sm:text-lg">
+                    <p className="mt-4 text-base sm:text-1xl">
                         Streamline fundraising, marketing, and donor
                         management in one powerful platform—rated for
                         ease of use time and time again. Sign up for
