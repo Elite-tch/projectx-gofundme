@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from from "next/link";
 
 export default function Hero() {
     return (
@@ -18,12 +19,12 @@ export default function Hero() {
                         free.
                     </p>
                     <div className="mt-8 flex justify-center lg:justify-start">
-                        <a
+                        <Link
                             className="block w-full sm:w-1/2 md:w-2/5 rounded bg-purple-600 px-8 py-3 text-sm font-medium text-white shadow hover:bg-purple-700 focus:outline-none focus:ring active:bg-blue-500"
-                            href="#"
+                            href="/donate"
                         >
                             Get Started
-                        </a>
+                        </Link>
                     </div>
                 </div>
                 <div className="mt-8 lg:mt-0 lg:flex-shrink-0">
