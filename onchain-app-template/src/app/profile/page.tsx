@@ -44,7 +44,6 @@ function Profile() {
     const [funding, setFunding] = useState("");
     const [withdrawAmount, setWithdrawAmount] = useState("");
 
-
     const handleFundingChange = (event: any) => {
         const inputValue = event.target.value;
 
@@ -251,7 +250,6 @@ function Profile() {
             setIcon("no");
             setIsShown(true);
             setIsLoading(false);
-
         }
     };
 
@@ -314,7 +312,7 @@ function Profile() {
     return (
         <div className="relative mx-10">
             {exploreResults.length > 0 ? (
-                <section className="grid grid-cols-3 gap-4 pt-4 xl:grid-cols-4">
+                <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8 xl:grid-cols-4">
                     {exploreResults.map((res: any, index) => (
                         <InitiativeCard
                             item={res}
@@ -332,27 +330,29 @@ function Profile() {
             )}{" "}
             {isModalOpen && selectedItem && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-                    <div className="bg-white w-4/5 max-w-3xl p-6 rounded-lg shadow-lg relative">
+                    <div className="bg-white w-4/5 max-w-3xl p-6 rounded-lg shadow-lg relative overflow-hidden">
                         <button
-                            className="absolute top-4 right-4 text-gray-500 hover:text-red-600 text-3xl font-bold transition-all duration-300 focus:outline-none"
+                            className="absolute top-4 right-4 text-gray-500 hover:text-red-600 text-3xl transition-all duration-300 font-bold focus:outline-none"
                             onClick={closeModal}
                         >
                             &times;
                         </button>
 
-                        <div className="max-h-[80vh] overflow-y-auto  px-4">
+                        <div className="max-h-[80vh] overflow-y-auto px-4 custom-scrollbar">
                             {/* <Image
-                                src={selectedItem.image}
-                                alt={selectedItem.label}
-                                className="w-full h-64 object-cover rounded-md mb-4"
-                            /> */}
-                            <h3 className="text-2xl font-semibold mb-4">
+                    src={selectedItem.image}
+                    alt={selectedItem.label}
+                    className="w-full h-64 object-cover rounded-md mb-4"
+                /> */}
+                            <h3 className="text-2xl font-semibold mb-4 text-gray-800">
                                 {selectedItem.title}
                             </h3>
-                            <p className="text-gray-700 mb-2 font-thin">
+
+                            <p className="text-gray-600 mb-4 leading-relaxed">
                                 {selectedItem.description}
                             </p>
-                            {selectedItem.initiativeFounder !=
+
+                            {selectedItem.initiativeFounder !==
                             account.address ? (
                                 <form
                                     onSubmit={(e) =>
@@ -368,17 +368,16 @@ function Profile() {
                                         value={funding}
                                         onChange={handleFundingChange}
                                         required
-                                        className="w-3/5 md:w-2/5 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                                        className="w-full md:w-2/5 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
                                     />
-                                    <button className="w-3/5 md:w-2/5 justify-center my-4  bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-900 transition duration-300 font-medium">
+                                    <button className="w-full md:w-2/5 bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition duration-300 font-medium">
                                         Support Initiative
                                     </button>
                                 </form>
-                            ) : (
-                                ""
-                            )}
+                            ) : null}
 
-                            <div className="w-full bg-gray-200 rounded-full h-1 mt-3">
+                            {/* Progress Bar */}
+                            <div className="w-full bg-gray-200 rounded-full h-1 mt-4">
                                 <div
                                     className="bg-purple-500 h-1 rounded-full transition-all duration-300"
                                     style={{
@@ -399,61 +398,53 @@ function Profile() {
                                         }%`,
                                     }}
                                 ></div>
-
-                                <p className="font-medium">
-                                    {Number(
-                                        formatEther(
-                                            selectedItem?.initiativeAmountRaised ??
-                                                "0",
-                                        ),
-                                    )}{" "}
-                                    ETH raised of{" "}
-                                    {Number(
-                                        formatEther(selectedItem?.goal ?? "0"),
-                                    )}{" "}
-                                    ETH
-                                </p>
-
-                                <p className="font-medium">
-                                    Found by{" "}
-                                    {selectedItem?.initiativeFounder
-                                        ? selectedItem.initiativeFounder ===
-                                          account.address
-                                            ? "me"
-                                            : `${selectedItem.initiativeFounder.slice(0, 6)}...${selectedItem.initiativeFounder.slice(-4)}`
-                                        : "0x0"}
-                                </p>
-
-                                {selectedItem.initiativeFounder ==
-                                account.address ? (
-                                    <>
-                                        <input
-                                            type="number"
-                                            id="funding"
-                                            name="goal"
-                                            placeholder="0.01"
-                                            value={withdrawAmount}
-                                            onChange={
-                                                handleWithdrawAmountChange
-                                            }
-                                            required
-                                            className="w-3/5 md:w-2/5 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-                                        />
-                                        <button
-                                            onClick={() =>
-                                                withdrawFromInitiative(
-                                                    selectedItem,
-                                                )
-                                            }
-                                            className="w-3/5 md:w-2/5 justify-center my-4  bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-900 transition duration-300 font-medium"
-                                        >
-                                            Withdraw
-                                        </button>{" "}
-                                    </>
-                                ) : (
-                                    ""
-                                )}
                             </div>
+
+                            <p className="mt-2 font-medium text-gray-700">
+                                {Number(
+                                    formatEther(
+                                        selectedItem?.initiativeAmountRaised ??
+                                            "0",
+                                    ),
+                                )}{" "}
+                                ETH raised of{" "}
+                                {Number(formatEther(selectedItem?.goal ?? "0"))}{" "}
+                                ETH
+                            </p>
+
+                            <p className="font-medium text-gray-600 mt-2">
+                                Found by{" "}
+                                {selectedItem?.initiativeFounder
+                                    ? selectedItem.initiativeFounder ===
+                                      account.address
+                                        ? "me"
+                                        : `${selectedItem.initiativeFounder.slice(0, 6)}...${selectedItem.initiativeFounder.slice(-4)}`
+                                    : "0x0"}
+                            </p>
+
+                            {selectedItem.initiativeFounder ===
+                                account.address && (
+                                <section className="flex space-x-3">
+                                    <input
+                                        type="number"
+                                        id="funding"
+                                        name="goal"
+                                        placeholder="0.01"
+                                        value={withdrawAmount}
+                                        onChange={handleWithdrawAmountChange}
+                                        required
+                                        className="w-full md:w-2/5 px-4 py-2 border border-gray-300 rounded-md mt-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                                    />
+                                    <button
+                                        onClick={() =>
+                                            withdrawFromInitiative(selectedItem)
+                                        }
+                                        className="w-full md:w-2/5 bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition duration-300 font-medium mt-4"
+                                    >
+                                        Withdraw
+                                    </button>
+                                </section>
+                            )}
                         </div>
                     </div>
                 </div>

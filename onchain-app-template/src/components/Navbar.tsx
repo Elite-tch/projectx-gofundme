@@ -23,7 +23,7 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="w-full mx-auto px-5 lg:px-10 bg-white shadow-md">
+        <div className="w-full mx-auto px-7 lg:px-10 bg-white shadow-md">
             <div className="flex justify-between items-center py-2 lg:py-2">
                 <Link href="/">
                     <Image
