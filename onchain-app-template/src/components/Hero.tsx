@@ -20,11 +20,11 @@ export default function Hero() {
                     </p>
                     <div className="mt-8 flex justify-center lg:justify-start">
                         <Link
-                            className="block w-full sm:w-1/2 md:w-2/5 rounded bg-purple-600 px-8 py-3 text-sm font-medium text-white shadow hover:bg-purple-700 focus:outline-none focus:ring active:bg-blue-500"
-                            href="/donate"
-                        >
-                            Get Started
-                        </Link>
+                        href="/donate"
+                        className="px-2 py-1 rounded-md hover:bg-gray-50"
+                    >
+                        Get started
+                    </Link>
                     </div>
                 </div>
                 <div className="mt-8 lg:mt-0 lg:flex-shrink-0">
