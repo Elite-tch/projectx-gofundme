@@ -9,7 +9,7 @@ import LoginButton from "../components/LoginButton";
 import SignupButton from "../components/SignupButton";
 import Navbar from "src/components/Navbar";
 import Hero from "src/components/Hero";
-import ContentPage from "src/components/ContentPage";
+// import ContentPage from "src/components/ContentPage";
 
 export default function Page() {
     const { address } = useAccount();
@@ -17,7 +17,7 @@ export default function Page() {
     return (
         <div className="relative w-full md:mt-32 mt-24 text-left text-6xl font-medium text-gray-800 mb:ml-10 ml:ml-24">
             <Hero />
-            <ContentPage />
+          
         </div>
     );
 }
