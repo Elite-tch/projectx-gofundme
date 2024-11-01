@@ -25,7 +25,7 @@ interface Item {
     id?: string;
 }
 
-function Donate() {
+function Profile() {
     const account = useAccount();
     const { writeContractAsync } = useWriteContract();
 
@@ -178,16 +178,22 @@ function Donate() {
                     if (!seenIds.has(id)) {
                         seenIds.add(id);
 
-                        combinedResults.push({
-                            goal: result.result.initiativeGoal,
-                            initiativeAmountRaised:
-                                result.result.initiativeAmountRaised,
-                            title: campaign.title,
-                            description: campaign.description,
-                            id: id,
-                            initiativeFounder: result.result.initiativeFounder,
-                            initiativeAddress: result.result.initiativeAddress,
-                        });
+                        if (
+                            result.result.initiativeFounder == account.address
+                        ) {
+                            combinedResults.push({
+                                goal: result.result.initiativeGoal,
+                                initiativeAmountRaised:
+                                    result.result.initiativeAmountRaised,
+                                title: campaign.title,
+                                description: campaign.description,
+                                id: id,
+                                initiativeFounder:
+                                    result.result.initiativeFounder,
+                                initiativeAddress:
+                                    result.result.initiativeAddress,
+                            });
+                        }
                     }
                 }
             });
@@ -245,20 +251,6 @@ function Donate() {
 
     return (
         <div className="relative mx-10">
-            <div className="relative md:mt-52 mt-24 text-left text-6xl font-medium text-gray-800 mb:ml-10 ml:ml-24">
-                <h2>Browse fundraisers by category</h2>
-            </div>
-            <p className="mt-6 text-left w-4/5 text-2xl font-medium text-gray-600">
-                People around the world are raising money for what they are
-                passionate about.
-            </p>
-            <div className="flex lg:items-start justify-center lg:justify-start mt-10">
-                <Link href="/create">
-                    <button className="w-full bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-900 transition duration-300 font-medium">
-                        Start a MetroFund
-                    </button>
-                </Link>
-            </div>
             {exploreResults.length > 0 ? (
                 <section className="grid grid-cols-3 gap-4 pt-4 xl:grid-cols-4">
                     {exploreResults.map((res: any, index) => (
@@ -272,8 +264,7 @@ function Donate() {
             ) : (
                 <section className="flex flex-col py-16 justify-center items-center w-full">
                     <p className="text-center font-bold text-xl">
-                        Can't get initiatives at this time, connect wallet or
-                        reload page.
+                        You don't seem to have created any initiative.
                     </p>
                 </section>
             )}{" "}
@@ -377,4 +368,4 @@ function Donate() {
     );
 }
 
-export default Donate;
+export default Profile;
