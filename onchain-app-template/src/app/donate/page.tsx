@@ -42,6 +42,7 @@ function Donate() {
     const [exploreResults, setCombinedResults] = useState<[]>([]);
 
     const [funding, setFunding] = useState("");
+    const [withdrawAmount, setWithdrawAmount] = useState("");
 
     const handleFundingChange = (event: any) => {
         const inputValue = event.target.value;
@@ -50,6 +51,18 @@ function Donate() {
 
         if (isValid) {
             setFunding(inputValue);
+        } else {
+            console.error("Invalid input");
+        }
+    };
+
+    const handleWithdrawAmountChange = (event: any) => {
+        const inputValue = event.target.value;
+
+        const isValid = /^\d+(\.\d+)?$/.test(inputValue);
+
+        if (isValid) {
+            setWithdrawAmount(inputValue);
         } else {
             console.error("Invalid input");
         }
@@ -202,8 +215,15 @@ function Donate() {
     ) => {
         e.preventDefault();
         console.log(initiative);
-        setIsLoading(true);
 
+        if (!account.isConnected) {
+            setIcon("no");
+            setMessage("Connect your Wallet");
+            setIsShown(true);
+            return;
+        }
+
+        setIsLoading(true);
         try {
             const result = await writeContractAsync({
                 abi: initiativeStorageABI,
@@ -219,9 +239,7 @@ function Donate() {
             if (result) {
                 setIsLoading(false);
                 setIcon("yes");
-                setMessage(
-                    "Successfully supported Initiative.",
-                );
+                setMessage("Successfully supported Initiative.");
                 setIsShown(true);
                 return;
             }
@@ -230,6 +248,55 @@ function Donate() {
             // }
             setIcon("no");
             setIsShown(true);
+            setIsLoading(false);
+
+        }
+    };
+
+    const withdrawFromInitiative = async (initiative: any) => {
+        console.log(initiative);
+
+        if (!account.isConnected) {
+            setIcon("no");
+            setMessage("Connect your Wallet");
+            setIsShown(true);
+            return;
+        }
+
+        if (initiative.initiativeFounder != account.address) {
+            setIcon("no");
+            setMessage("You did not find this initiative");
+            setIsShown(true);
+            return;
+        }
+
+        setIsLoading(true);
+        try {
+            const result = await writeContractAsync({
+                abi: initiativeStorageABI,
+                address: `0x${String(initiative.initiativeAddress).substring(
+                    2,
+                )}`,
+                account: account.address,
+                functionName: "withdraw",
+                args: [parseEther(withdrawAmount)],
+            });
+            console.log(result);
+
+            if (result) {
+                setIsLoading(false);
+                setIcon("yes");
+                setMessage("Successfully withdrawn from Initiative.");
+                setIsShown(true);
+                return;
+            }
+        } catch (error) {
+            setMessage(`ERROR: ${parseError(error)}`);
+            // }
+            setIcon("no");
+            setIsShown(true);
+            setIsLoading(false);
+
         }
     };
 
@@ -372,6 +439,36 @@ function Donate() {
                                             : `${selectedItem.initiativeFounder.slice(0, 6)}...${selectedItem.initiativeFounder.slice(-4)}`
                                         : "0x0"}
                                 </p>
+
+                                {selectedItem.initiativeFounder ==
+                                account.address ? (
+                                    <>
+                                        <input
+                                            type="number"
+                                            id="funding"
+                                            name="goal"
+                                            placeholder="0.01"
+                                            value={withdrawAmount}
+                                            onChange={
+                                                handleWithdrawAmountChange
+                                            }
+                                            required
+                                            className="w-3/5 md:w-2/5 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                                        />
+                                        <button
+                                            onClick={() =>
+                                                withdrawFromInitiative(
+                                                    selectedItem,
+                                                )
+                                            }
+                                            className="w-3/5 md:w-2/5 justify-center my-4  bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-900 transition duration-300 font-medium"
+                                        >
+                                            Withdraw
+                                        </button>{" "}
+                                    </>
+                                ) : (
+                                    ""
+                                )}
                             </div>
                         </div>
                     </div>
