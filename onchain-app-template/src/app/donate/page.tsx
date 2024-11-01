@@ -327,7 +327,7 @@ function Donate() {
                 </Link>
             </div>
             {exploreResults.length > 0 ? (
-                <section className="flex justify-center space-y-4 md:space-x-4 md:space-y-0 md:justify-between items-center md:flex-row flex-col pt-12 md:pt-24">
+                <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8 xl:grid-cols-4">
                     {exploreResults.map((res: any, index) => (
                         <InitiativeCard
                             item={res}

@@ -20,10 +20,9 @@ const InitiativeCard: React.FC<InitiativeCardProps> = ({ item, onClick }) => {
 
     return (
         <div
-            className="flex flex-col sm:flex-row px-4 py-6 shadow-lg items-center w-full mx-auto rounded-lg cursor-pointer transition-all duration-300 hover:bg-gray-50"
+            className="flex flex-col bg-gray-100 text-gray-950 sm:flex-row px-6 py-6 shadow-lg items-center w-full mx-auto rounded-lg cursor-pointer transition-all duration-300 hover:bg-slate-200"
             onClick={onClick}
         >
-            {/* Uncomment and adjust this part if using an image */}
             {/* <div className="w-44 h-44 sm:w-full sm:h-64 mr-4">
         <Image
             src={item.image}
@@ -34,12 +33,12 @@ const InitiativeCard: React.FC<InitiativeCardProps> = ({ item, onClick }) => {
 
             <div className="text-sm font-medium text-left text-gray-700 w-full space-y-2">
                 {/* Title with overflow handling */}
-                <p className="truncate">{item?.title}</p>
+                <p className="truncate font-bold text-lg">{item?.title}</p>
 
                 {/* Progress Bar */}
-                <div className="w-full bg-gray-200 rounded-full h-1 mt-3">
+                <div className="w-full bg-gray-300 rounded-full h-2 mt-3">
                     <div
-                        className="bg-purple-500 h-1 rounded-full transition-all duration-300"
+                        className="bg-purple-500 h-2 rounded-full transition-all duration-300"
                         style={{
                             width: `${
                                 (Number(
