@@ -83,3 +83,7 @@ a {
 .templateSection > div {
   max-width: 100%;;
 }
+
+.header h1{
+  line-height: 1.5;
+}

@@ -311,11 +311,11 @@ function Donate() {
     };
 
     return (
-        <div className="relative mx-10">
-            <div className="relative md:mt-52 mt-24 text-left text-6xl font-medium text-gray-800 mb:ml-10 ml:ml-24">
+        <div className="relative pb-24 w-4/5 mx-auto">
+            <div className="relative md:mt-32 mt-24 text-left  text-6xl font-medium text-gray-800 mb:ml-10 ml:ml-24">
                 <h2>Browse fundraisers by category</h2>
             </div>
-            <p className="mt-6 text-left w-4/5 text-2xl font-medium text-gray-600">
+            <p className="mt-6 text-left w-4/5 text-2xl pb-4 font-medium text-gray-600">
                 People around the world are raising money for what they are
                 passionate about.
             </p>
@@ -327,7 +327,7 @@ function Donate() {
                 </Link>
             </div>
             {exploreResults.length > 0 ? (
-                <section className="grid grid-cols-3 gap-4 pt-4 xl:grid-cols-4">
+                <section className="flex justify-center gap-12 md:justify-between items-center md:flex-row flex-col pt-12  md:pt-24">
                     {exploreResults.map((res: any, index) => (
                         <InitiativeCard
                             item={res}

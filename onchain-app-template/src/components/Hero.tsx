@@ -1,16 +1,14 @@
 import React from 'react';
-import Link from from "next/link";
+import Link from "next/link";
 
 export default function Hero() {
     return (
         <div className="relative bg-gray-50 h-screen flex items-center">
             <div className="mx-auto max-w-screen-xl px-4 flex flex-col lg:flex-row items-center justify-between">
-                <div className="text-center lg:text-left">
-                    <h1 className="text-2xl font-extrabold sm:text-4xl">
-                        Access the full power of DeFi.
-                        <strong className="font-extrabold text-purple-600 pt-4 block">
-                            Your home for changing the world
-                        </strong>
+                <div className="header text-center lg:text-left mx-auto md:w-3/5">
+                    <h1 className="text-2xl font-extrabold sm:text-4xl ">
+                        Access the full power of Changing The World Through Fundraising.
+                        
                     </h1>
                     <p className="mt-4 text-base sm:text-1xl">
                         Streamline fundraising, marketing, and donor
@@ -21,7 +19,7 @@ export default function Hero() {
                     <div className="mt-8 flex justify-center lg:justify-start">
                          <Link
                         href="/donate"
-                        className="px-2 py-1 rounded-md hover:bg-gray-50"
+                        className="px-5 py-2 rounded-md bg-purple-600 text-2xl  text-white hover:bg-gray-50"
                     >
                         Get started
                     </Link>
