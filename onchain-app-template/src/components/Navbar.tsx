@@ -75,15 +75,15 @@ const Navbar = () => {
                     isOpen ? "translate-x-0" : "translate-x-full"
                 }`}
             >
-                <div className="flex justify-between items-center p-5">
+                <div className="flex justify-end items-center p-5">
                     {/* Logo */}
-                    <Link href="/" onClick={() => setIsOpen(false)}>
+                    {/* <Link href="/" onClick={() => setIsOpen(false)}>
                         <Image src={logo2} alt="Logo" className="w-28" />
-                    </Link>
+                    </Link> */}
 
                     {/* Close Button */}
                     <button onClick={() => setIsOpen(false)}>
-                        <IoCloseCircleOutline size="1.5rem" />
+                        <IoCloseCircleOutline size="2rem" />
                     </button>
                 </div>
                 <div className="mt-4 flex flex-col space-y-4 justify-center items-center w-full">
