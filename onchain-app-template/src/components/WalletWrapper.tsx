@@ -35,7 +35,7 @@ export default function WalletWrapper({
                     className={className}
                 >
                     <Avatar className="h-6 w-6 bg-white stroke-white" />
-                    <Name className="text-white"/>
+                    <Name className="text-white" />
                 </ConnectWallet>
                 <WalletDropdown>
                     <Identity
@@ -53,6 +53,12 @@ export default function WalletWrapper({
                     >
                         Go to Wallet Dashboard
                     </WalletDropdownLink> */}
+                    <WalletDropdownLink
+                        icon="wallet"
+                        href="/profile"
+                    >
+                        Profile
+                    </WalletDropdownLink>
                     <WalletDropdownDisconnect />
                 </WalletDropdown>
             </Wallet>
