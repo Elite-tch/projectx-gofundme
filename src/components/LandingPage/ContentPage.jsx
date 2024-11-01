@@ -128,8 +128,8 @@ const contentData = [
 <div className='flex flex-col items-center justify-center pt-12'>
 <h2 className='text-gray-300 text-center font-bold text-3xl pb-2'>Governed by the community</h2>
 <p className='text-gray-500 text-center text-sm'>Aave is a fully decentralized community governed protocol with 166.224  Token holders.</p>
-<button className=' bg-slate-200 hover:bg-gray-300 py-3 px-6 rounded-xl mt-6'>
-Governors Forum</button>
+<p className=' bg-slate-200 hover:bg-gray-300 py-3 px-6 rounded-xl mt-6'>
+Governors Forum</p>
 <img src="emoji.png" alt="" className='pt-4 ml:8 md:ml-16 w-4/5' />
 </div>
 
@@ -271,27 +271,18 @@ Governors Forum</button>
 </div>
 </div>
 
-<div className="flex w-4/5 mx-auto items-center md:items-start gap-12 md:justify-between md:flex-row flex-col mt-12 md:mt-28">
+<div className="flex w-4/5 mx-auto items-center md:items-start gap-12 md:justify-between md:flex-row flex-col mt-12 pb-16 md:mt-28">
 <div className="text-gray-300  md:w-2/5">
   <h2 className="font-bold text-2xl text-purple-500 pb-2">The help you need,
   here for you 24/7</h2>
-  <p>MetroSpace award-winning support team is here for you 24/7, with some of the fastest response times and the highest customer satisfaction ratings in the industry.</p>
-<button type="button" className="px-6 hover:bg-purple-500 mt-8 py-3 bg-purple-600 rounded-full">Contact us</button>
+  <p className="mb-8">MetroSpace award-winning support team is here for you 24/7, with some of the fastest response times and the highest customer satisfaction ratings in the industry.</p>
+<a href="izuchukwujohnbosco95@gmail.com" className="px-6  hover:bg-purple-500 mt-8 py-3 bg-purple-600 rounded-full">Contact us</a>
 </div>
-<img src="emoji2.png" alt="" className="w-96" />
+<img src="emoji2.png" alt="" className="w-96 " />
 
-</div>
-
-<footer className="bg-gray-800">
-<div className="text-gray-400 text-sm flex py-4 gap-8 items-center justify-center mt-12">
-<a className="hover:text-gray-300"  href="">Privacy Policy</a>
-<a className="hover:text-gray-300"  href="">Terms of Use</a>
-<a className="hover:text-gray-300"  href="">Docs</a>
 </div>
 
 
-
-</footer>
 
 
 </div>
