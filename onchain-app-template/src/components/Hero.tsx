@@ -19,7 +19,7 @@ export default function Hero() {
                         free.
                     </p>
                     <div className="mt-8 flex justify-center lg:justify-start">
-                        <Link
+                         <Link
                         href="/donate"
                         className="px-2 py-1 rounded-md hover:bg-gray-50"
                     >
