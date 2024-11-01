@@ -2,7 +2,7 @@
 
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseCircleOutline } from "react-icons/io5";
-import logo2 from "../assets/logo2.png";
+import logo2 from "../assets/metrofund.png";
 // import { Link } from "react-router-dom";
 import { useState } from "react";
 import Link from "next/link";
@@ -15,8 +15,8 @@ const Navbar = () => {
         { title: "Donate", to: "/donate" },
     ];
     const navLinksRight = [
-        { title: "About", to: "/about" },
-        { title: "Contact", to: "/contact" },
+        // { title: "About", to: "/about" },
+        // { title: "Contact", to: "/contact" },
         { title: "Start a MetroFund", to: "/create" },
     ];
 
@@ -26,7 +26,11 @@ const Navbar = () => {
         <div className="w-full mx-auto px-5 lg:px-10 bg-white shadow-md">
             <div className="flex justify-between items-center py-2 lg:py-2">
                 <Link href="/">
-                    <Image src={logo2} alt="Logo" className="w-32 md:w-44" />
+                    <Image
+                        src={logo2}
+                        alt="Logo"
+                        className="w-32 flex md:w-44"
+                    />
                 </Link>
                 <section className="hidden lg:flex justify-center items-center space-x-4">
                     <Link
@@ -54,45 +58,7 @@ const Navbar = () => {
                     ></WalletWrapper>
                 </section>
 
-                {/* Desktop Links for the Left Side */}
-                {/* <div className="hidden lg:flex space-x-5">
-                    {navLinksLeft.map((link, index) => (
-                        <Link
-                            key={index}
-                            href={link.to === "#" ? "" : link.to}
-                            className="text-sm cursor-pointer font-medium text-gray-700 hover:text-gray-900 transition duration-300"
-                        >
-                            {link.title}
-                        </Link>
-                    ))}
-                </div> */}
-
-                {/* Logo which is placed in the Center for desktop view */}
-
-                {/* Desktop Links for the Right Side */}
-                {/* <div className="hidden lg:flex space-x-5">
-                    {navLinksRight.map((link, index) => (
-                        <Link
-                            key={index}
-                            href={link.to === "#" ? "" : link.to}
-                            className={`text-sm cursor-pointer font-medium hover:text-gray-900 transition duration-300 ${
-                                link.title === "Start a MetroFund"
-                                    ? "text-white bg-purple-700 px-4 py-2 rounded-full"
-                                    : "text-gray-700"
-                            }`}
-                        >
-                            {link.title}
-                        </Link>
-                    ))}
-                </div> */}
-                {/* <WalletWrapper
-                    withWalletAggregator={true}
-                    text="Connect Wallet"
-                    className="rounded-lg !text-white px-5 py-2 font-bold custom-gradient"
-                ></WalletWrapper> */}
-
-                {/* Mobile Hamburger Menu */}
-                <div className="lg:hidden">
+                <div className="lg:hidden my-auto">
                     <button onClick={() => setIsOpen(!isOpen)}>
                         {isOpen ? (
                             <IoCloseCircleOutline size="1.5rem" />
@@ -112,7 +78,7 @@ const Navbar = () => {
                 <div className="flex justify-between items-center p-5">
                     {/* Logo */}
                     <Link href="/" onClick={() => setIsOpen(false)}>
-                        <Image src={logo2} alt="Logo" className="h-10" />
+                        <Image src={logo2} alt="Logo" className="w-28" />
                     </Link>
 
                     {/* Close Button */}
@@ -120,13 +86,13 @@ const Navbar = () => {
                         <IoCloseCircleOutline size="1.5rem" />
                     </button>
                 </div>
-                <div className="mt-4 space-y-4">
+                <div className="mt-4 flex flex-col space-y-4 justify-center items-center w-full">
                     {[...navLinksLeft, ...navLinksRight].map((link, index) => (
                         <Link
                             key={index}
                             href={link.to === "#" ? "" : link.to}
                             onClick={() => setIsOpen(false)}
-                            className={`block text-lg font-medium px-4 py-2 transition duration-200 rounded-lg ${
+                            className={`w-full text-lg font-medium px-4 py-2 transition duration-200 rounded-lg ${
                                 link.title === "Start a MetroFund"
                                     ? "text-white bg-purple-700 rounded-full"
                                     : "text-gray-700 bg-gray-200 hover:bg-gray-300"
@@ -135,6 +101,11 @@ const Navbar = () => {
                             {link.title}
                         </Link>
                     ))}
+                    <WalletWrapper
+                        withWalletAggregator={true}
+                        text="Connect Wallet"
+                        className="w-full cursor-pointer flex font-medium transition duration-300 text-white bg-purple-700 rounded-xl hover:bg-purple-800"
+                    ></WalletWrapper>
                 </div>
             </div>
 
