@@ -287,32 +287,34 @@ function Profile() {
                             <h3 className="text-2xl font-semibold mb-4">
                                 {selectedItem.title}
                             </h3>
-
                             <p className="text-gray-700 mb-2 font-thin">
                                 {selectedItem.description}
                             </p>
-
-                            <form
-                                onSubmit={(e) =>
-                                    supportInitiative(e, selectedItem)
-                                }
-                                className="flex flex-col space-y-3"
-                            >
-                                <input
-                                    type="number"
-                                    id="funding"
-                                    name="goal"
-                                    placeholder="0.01"
-                                    value={funding}
-                                    onChange={handleFundingChange}
-                                    required
-                                    className="w-3/5 md:w-2/5 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-                                />
-                                <button className="w-3/5 md:w-2/5 justify-center my-4  bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-900 transition duration-300 font-medium">
-                                    Support Initiative
-                                </button>
-                            </form>
-                            {/* </Link> */}
+                            {selectedItem.initiativeFounder !=
+                            account.address ? (
+                                <form
+                                    onSubmit={(e) =>
+                                        supportInitiative(e, selectedItem)
+                                    }
+                                    className="flex flex-col space-y-3"
+                                >
+                                    <input
+                                        type="number"
+                                        id="funding"
+                                        name="goal"
+                                        placeholder="0.01"
+                                        value={funding}
+                                        onChange={handleFundingChange}
+                                        required
+                                        className="w-3/5 md:w-2/5 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                                    />
+                                    <button className="w-3/5 md:w-2/5 justify-center my-4  bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-900 transition duration-300 font-medium">
+                                        Support Initiative
+                                    </button>
+                                </form>
+                            ) : (
+                                ""
+                            )}
 
                             <div className="w-full bg-gray-200 rounded-full h-1 mt-3">
                                 <div

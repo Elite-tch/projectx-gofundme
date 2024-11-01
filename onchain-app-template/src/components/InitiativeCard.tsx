@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { formatEther } from "ethers";
+import { useAccount } from "wagmi";
 
 interface InitiativeCardProps {
     item?: {
@@ -15,6 +16,8 @@ interface InitiativeCardProps {
 }
 
 const InitiativeCard: React.FC<InitiativeCardProps> = ({ item, onClick }) => {
+    const account = useAccount();
+
     return (
         <div
             className="flex sm:flex-col items-center sm:items-center w-full mx-auto rounded-md transition-transform transform cursor-pointer"
@@ -58,7 +61,9 @@ const InitiativeCard: React.FC<InitiativeCardProps> = ({ item, onClick }) => {
                     <p className="font-medium">
                         Found by{" "}
                         {item?.initiativeFounder
-                            ? `${item.initiativeFounder.slice(0, 6)}...${item.initiativeFounder.slice(-4)}`
+                            ? item.initiativeFounder === account.address
+                                ? "me"
+                                : `${item.initiativeFounder.slice(0, 6)}...${item.initiativeFounder.slice(-4)}`
                             : "0x0"}
                     </p>
                 </div>

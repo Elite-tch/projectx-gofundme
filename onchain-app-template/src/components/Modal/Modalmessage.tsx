@@ -12,7 +12,7 @@ const Modalmessage = () => {
     return (
         <div
             onClick={() => setIsShown(false)}
-            className="h-full fixed flex justify-center items-center w-full z-50 loader-glass-background bg-opacity-10 transition-all duration-500"
+            className="h-full fixed flex justify-center items-center w-full z-[9999] loader-glass-background bg-opacity-10 transition-all duration-500"
         >
             <div
                 onClick={(e) => e.stopPropagation()}

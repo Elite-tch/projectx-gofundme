@@ -220,7 +220,7 @@ function Donate() {
                 setIsLoading(false);
                 setIcon("yes");
                 setMessage(
-                    "Initiative creation successful. View on profile page",
+                    "Successfully supported Initiative.",
                 );
                 setIsShown(true);
                 return;
@@ -301,27 +301,31 @@ function Donate() {
                                 {selectedItem.description}
                             </p>
 
-                            <form
-                                onSubmit={(e) =>
-                                    supportInitiative(e, selectedItem)
-                                }
-                                className="flex flex-col space-y-3"
-                            >
-                                <input
-                                    type="number"
-                                    id="funding"
-                                    name="goal"
-                                    placeholder="0.01"
-                                    value={funding}
-                                    onChange={handleFundingChange}
-                                    required
-                                    className="w-3/5 md:w-2/5 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
-                                />
-                                <button className="w-3/5 md:w-2/5 justify-center my-4  bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-900 transition duration-300 font-medium">
-                                    Support Initiative
-                                </button>
-                            </form>
-                            {/* </Link> */}
+                            {selectedItem.initiativeFounder !=
+                            account.address ? (
+                                <form
+                                    onSubmit={(e) =>
+                                        supportInitiative(e, selectedItem)
+                                    }
+                                    className="flex flex-col space-y-3"
+                                >
+                                    <input
+                                        type="number"
+                                        id="funding"
+                                        name="goal"
+                                        placeholder="0.01"
+                                        value={funding}
+                                        onChange={handleFundingChange}
+                                        required
+                                        className="w-3/5 md:w-2/5 px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                                    />
+                                    <button className="w-3/5 md:w-2/5 justify-center my-4  bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-900 transition duration-300 font-medium">
+                                        Support Initiative
+                                    </button>
+                                </form>
+                            ) : (
+                                ""
+                            )}
 
                             <div className="w-full bg-gray-200 rounded-full h-1 mt-3">
                                 <div
