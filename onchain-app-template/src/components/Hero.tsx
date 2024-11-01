@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Hero() {
     return (
-        <div className="relative bg-gray-50 h-screen flex items-start">
+        <div className="relative pt-12 flex items-start">
             <div className="mx-auto max-w-screen-xl px-4 flex flex-col lg:flex-row items-center justify-between">
                 <div className="header text-center lg:text-left mx-auto md:w-3/5 z-50">
                     <h1 className="text-2xl font-extrabold sm:text-4xl ">
