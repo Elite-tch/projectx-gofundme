@@ -24,13 +24,17 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-    title: "Onchain App Template",
-    description: "Built with OnchainKit",
+    title: "Metrofund",
+    description: "Power to Change the World through Fundraising",
     openGraph: {
-        title: "Onchain App Template",
-        description: "Built with OnchainKit",
-        images: [`${NEXT_PUBLIC_URL}/vibes/vibes-19.png`],
+        title: "Metrofund",
+        description: "Power to Change the World through Fundraising",
+        images: [
+            `https://metrofund.vercel.app/metrofund.png`,
+            `${NEXT_PUBLIC_URL}/metrofund.png`,
+        ],
     },
+    icons: "https://metrofund.vercel.app/metrofund.png",
 };
 
 export default function RootLayout({
