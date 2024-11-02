@@ -10,6 +10,7 @@ Welcome to **MetroFund**, a comprehensive crowdfunding platform designed to revo
 - [How It Works](#how-it-works)
 - [Contract Functionality](#contract-functionality)
 - [Contributing](#contributing)
+- [Live Site](#live-site)
 
 ## Features
 
@@ -53,7 +54,11 @@ The smart contract includes the following functionalities:
 
 ## Contributing
 
-We welcome contributions from the community! If you'd like to contribute to the development of MetroFund, please fork the repository, make your changes, and submit a pull request. 
+We welcome contributions from the community! If you'd like to contribute to the development of MetroFund, please fork the repository, make your changes, and submit a pull request.
+
+## Live Site
+
+Visit our live site at [metrofund.vercel.app](https://metrofund.vercel.app) to start your fundraising journey today!
 
 ---
 
