@@ -11,6 +11,7 @@ interface InitiativeCardProps {
         initiativeAmountRaised?: string;
         goal?: string;
         id?: string;
+        image?: any;
     };
     onClick: () => void;
 }
@@ -18,18 +19,20 @@ interface InitiativeCardProps {
 const InitiativeCard: React.FC<InitiativeCardProps> = ({ item, onClick }) => {
     const account = useAccount();
 
+    console.log(item)
+
     return (
         <div
-            className="flex flex-col bg-gray-100 text-gray-950 sm:flex-row px-6 py-6 shadow-lg items-center w-full mx-auto rounded-lg cursor-pointer transition-all duration-300 hover:bg-slate-200"
+            className="flex flex-col space-y-4 bg-gray-100 text-gray-950 px-2 py-4 shadow-lg items-center w-full mx-auto rounded-lg cursor-pointer transition-all duration-300 hover:bg-slate-200"
             onClick={onClick}
         >
-            {/* <div className="w-44 h-44 sm:w-full sm:h-64 mr-4">
-        <Image
-            src={item.image}
-            alt={`${item.title} Icon`}
-            className="w-full h-full object-cover rounded-xl"
-        />
-    </div> */}
+            <div className="w-full max-w-[36rem] max-h-[12rem]">
+                <Image
+                    src={item?.image}
+                    alt={`${item?.title} Icon`}
+                    className="w-full h-full object-cover my-auto rounded-md"
+                />
+            </div>
 
             <div className="text-sm font-medium text-left text-gray-700 w-full space-y-2">
                 {/* Title with overflow handling */}

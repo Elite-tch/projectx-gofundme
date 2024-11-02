@@ -1,10 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-// import Navbar from "../components/Navbar";
-import laptop from "../../assets/laptop.jpg";
-import medicin2 from "../../assets/medicin2.jpg";
-// import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Image from "next/image";
 import Link from "next/link";
 import InitiativeCard from "src/components/InitiativeCard";
@@ -15,6 +11,14 @@ import { useAccount, useReadContracts, useWriteContract } from "wagmi";
 import { formatEther, parseEther } from "ethers";
 import { useModal } from "src/components/Modal/Modalcontext";
 import { parseError } from "src/utils/errors";
+import Avatar from "boring-avatars";
+
+import medicine from "src/assets/medicine.jpg";
+import EduWall from "src/assets/EduWall.jpg";
+import Autistic from "src/assets/autistic child.jpg";
+import Family from "src/assets/family.jpg";
+import laptop from "src/assets/laptop.jpg";
+import medicin2 from "src/assets/medicin2.jpg";
 
 interface Item {
     title?: string;
@@ -23,10 +27,21 @@ interface Item {
     initiativeAmountRaised?: string;
     goal?: string;
     id?: string;
+    image?: any;
 }
 
 function Profile() {
     const account = useAccount();
+
+    const [images] = useState([
+        medicine,
+        EduWall,
+        Autistic,
+        Family,
+        laptop,
+        medicin2,
+    ]);
+
     const { writeContractAsync } = useWriteContract();
 
     const { setIcon, setIsShown, setMessage } = useModal();
@@ -43,6 +58,43 @@ function Profile() {
 
     const [funding, setFunding] = useState("");
     const [withdrawAmount, setWithdrawAmount] = useState("");
+    const avatarVariants = [
+        "beam",
+        "marble",
+        "pixel",
+        "sunset",
+        "ring",
+        "bauhaus",
+    ] as const;
+    const [randomVariant] = useState<(typeof avatarVariants)[number]>(
+        avatarVariants[Math.floor(Math.random() * avatarVariants.length)],
+    );
+
+    const purpleColors = [
+        "#800080", // Purple
+        "#A020F0", // Purple2
+        "#A070B8", // Lavender
+        "#DA70D6", // Orchid
+        "#BA55D3", // MediumOrchid
+        "#9370DB", // MediumPurple
+        "#663399", // RebeccaPurple
+        "#6A5ACD", // SlateBlue
+        "#8A2BE2", // BlueViolet
+        "#DDA0DD", // Plum
+        "#E6E6FA", // Lavender
+        "#BF80FF", // MediumPurple1
+        "#B48CDA", // MediumPurple2
+        "#DAA520", // GoldenRod (for contrast)
+    ];
+
+    const getRandomColors = (colorsArray: any, numColors: any) => {
+        const shuffledColors = colorsArray.sort(() => 0.5 - Math.random());
+        return shuffledColors.slice(0, numColors);
+    };
+
+    const [randomPurpleColors] = useState(() =>
+        getRandomColors(purpleColors, 5),
+    );
 
     const handleFundingChange = (event: any) => {
         const inputValue = event.target.value;
@@ -205,6 +257,9 @@ function Profile() {
                                     result.result.initiativeFounder,
                                 initiativeAddress:
                                     result.result.initiativeAddress,
+                                image: images[
+                                    Math.floor(Math.random() * images.length)
+                                ],
                             });
                         }
                     }
@@ -310,7 +365,28 @@ function Profile() {
     };
 
     return (
-        <div className="relative mx-10">
+        <div className="relative pb-24 w-4/5 mx-auto pt-6">
+            {account.isConnected && account.address ? (
+                <section className="py-2 flex space-x-3 justify-center items-center font-bold rounded-lg text-lg">
+                    <section className="max-w-[3rem] max-h-[3rem]">
+                        <Avatar
+                            size={40}
+                            name="Random Name"
+                            variant={randomVariant}
+                            colors={randomPurpleColors}
+                        />
+                    </section>
+                    <p>
+                        Hello{" "}
+                        <Link
+                            className="text-purple-700 transition-all duration-300 hover:text-purple-500"
+                            href={`https://sepolia.arbiscan.io/address/${account.address}`}
+                        >{`${account.address.slice(0, 6)}...${account.address.slice(-4)}`}</Link>
+                    </p>
+                </section>
+            ) : (
+                ""
+            )}
             {exploreResults.length > 0 ? (
                 <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8 xl:grid-cols-4">
                     {exploreResults.map((res: any, index) => (
@@ -330,20 +406,20 @@ function Profile() {
             )}{" "}
             {isModalOpen && selectedItem && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-                    <div className="bg-white w-4/5 max-w-3xl p-6 rounded-lg shadow-lg relative overflow-hidden">
+                    <div className="bg-white w-4/5 max-w-2xl px-4 py-4 rounded-xl shadow-lg relative overflow-hidden">
                         <button
-                            className="absolute top-4 right-4 text-gray-500 hover:text-red-600 text-3xl transition-all duration-300 font-bold focus:outline-none"
+                            className="absolute top-2 right-2 bg-gray-100 rounded-full px-2 text-gray-500 hover:bg-red-100 hover:text-red-600 text-3xl transition-all duration-300 font-bold focus:outline-none"
                             onClick={closeModal}
                         >
                             &times;
                         </button>
 
-                        <div className="max-h-[80vh] overflow-y-auto px-4 custom-scrollbar">
-                            {/* <Image
-                    src={selectedItem.image}
-                    alt={selectedItem.label}
-                    className="w-full h-64 object-cover rounded-md mb-4"
-                /> */}
+                        <div className="max-h-[80vh] overflow-y-auto flex flex-col pt-1 space-y-3 custom-scrollbar">
+                            <Image
+                                src={selectedItem.image}
+                                alt={`${selectedItem.title} Icon`}
+                                className="w-full h-64 object-cover rounded-md mb-4"
+                            />
                             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
                                 {selectedItem.title}
                             </h3>
@@ -377,9 +453,9 @@ function Profile() {
                             ) : null}
 
                             {/* Progress Bar */}
-                            <div className="w-full bg-gray-200 rounded-full h-1 mt-4">
+                            <div className="w-full bg-gray-300 rounded-full h-2 mt-4">
                                 <div
-                                    className="bg-purple-500 h-1 rounded-full transition-all duration-300"
+                                    className="bg-purple-500 h-2 rounded-full transition-all duration-300"
                                     style={{
                                         width: `${
                                             (Number(
@@ -424,7 +500,7 @@ function Profile() {
 
                             {selectedItem.initiativeFounder ===
                                 account.address && (
-                                <section className="flex space-x-3">
+                                <>
                                     <input
                                         type="number"
                                         id="funding"
@@ -443,7 +519,7 @@ function Profile() {
                                     >
                                         Withdraw
                                     </button>
-                                </section>
+                                </>
                             )}
                         </div>
                     </div>
