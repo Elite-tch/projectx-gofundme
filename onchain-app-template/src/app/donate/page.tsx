@@ -1,10 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-// import Navbar from "../components/Navbar";
-import laptop from "../../assets/laptop.jpg";
-import medicin2 from "../../assets/medicin2.jpg";
-// import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Image from "next/image";
 import Link from "next/link";
 import InitiativeCard from "src/components/InitiativeCard";
@@ -16,6 +12,13 @@ import { formatEther, parseEther } from "ethers";
 import { useModal } from "src/components/Modal/Modalcontext";
 import { parseError } from "src/utils/errors";
 
+import medicine from "src/assets/medicine.jpg";
+import EduWall from "src/assets/EduWall.jpg";
+import Autistic from "src/assets/autistic child.jpg";
+import Family from "src/assets/family.jpg";
+import laptop from "src/assets/laptop.jpg";
+import medicin2 from "src/assets/medicin2.jpg";
+
 interface Item {
     title?: string;
     description?: string;
@@ -23,9 +26,18 @@ interface Item {
     initiativeAmountRaised?: string;
     goal?: string;
     id?: string;
+    image?: any;
 }
 
 function Donate() {
+    const [images] = useState([
+        medicine,
+        EduWall,
+        Autistic,
+        Family,
+        laptop,
+        medicin2,
+    ]);
     const account = useAccount();
     const { writeContractAsync } = useWriteContract();
 
@@ -200,6 +212,9 @@ function Donate() {
                             id: id,
                             initiativeFounder: result.result.initiativeFounder,
                             initiativeAddress: result.result.initiativeAddress,
+                            image: images[
+                                Math.floor(Math.random() * images.length)
+                            ],
                         });
                     }
                 }
@@ -344,23 +359,23 @@ function Donate() {
                     </p>
                 </section>
             )}
-            
+
             {isModalOpen && selectedItem && (
                 <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-                    <div className="bg-white w-4/5 max-w-3xl p-6 rounded-lg shadow-lg relative overflow-hidden">
+                    <div className="bg-white w-4/5 max-w-2xl px-4 py-4 rounded-xl shadow-lg relative overflow-hidden">
                         <button
-                            className="absolute top-4 right-4 text-gray-500 hover:text-red-600 text-3xl transition-all duration-300 font-bold focus:outline-none"
+                            className="absolute top-2 right-2 bg-gray-100 rounded-full px-2 text-gray-500 hover:bg-red-100 hover:text-red-600 text-3xl transition-all duration-300 font-bold focus:outline-none"
                             onClick={closeModal}
                         >
                             &times;
                         </button>
 
-                        <div className="max-h-[80vh] overflow-y-auto px-4 custom-scrollbar">
-                            {/* <Image
-                    src={selectedItem.image}
-                    alt={selectedItem.label}
-                    className="w-full h-64 object-cover rounded-md mb-4"
-                /> */}
+                        <div className="max-h-[80vh] overflow-y-auto flex flex-col pt-1 space-y-3 custom-scrollbar">
+                            <Image
+                                src={selectedItem.image}
+                                alt={`${selectedItem.title} Icon`}
+                                className="w-full h-64 object-cover rounded-md mb-4"
+                            />
                             <h3 className="text-2xl font-semibold mb-4 text-gray-800">
                                 {selectedItem.title}
                             </h3>
@@ -394,9 +409,9 @@ function Donate() {
                             ) : null}
 
                             {/* Progress Bar */}
-                            <div className="w-full bg-gray-200 rounded-full h-1 mt-4">
+                            <div className="w-full bg-gray-300 rounded-full h-2 mt-4">
                                 <div
-                                    className="bg-purple-500 h-1 rounded-full transition-all duration-300"
+                                    className="bg-purple-500 h-2 rounded-full transition-all duration-300"
                                     style={{
                                         width: `${
                                             (Number(

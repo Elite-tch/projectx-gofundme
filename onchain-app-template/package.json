@@ -18,6 +18,7 @@
         "@types/aos": "^3.0.7",
         "aos": "^2.3.4",
         "axios": "^1.7.7",
+        "boring-avatars": "^1.11.2",
         "flowbite": "^2.5.2",
         "flowbite-react": "^0.10.2",
         "next": "^14.2.5",
